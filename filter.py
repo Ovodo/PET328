@@ -12,23 +12,22 @@ field_data = [
      'oil_prod': [2532, 3031, 3288, 2780, 2774, 2574, 3723],
      'water_prod': [6, 9, 8, 11, 6, 3723, 3906]}]
 
-
 filter_paper=[]
-
 
 for item in field_data:    
     if item["well_type"] == "prod":
         filter_paper.append(item)
-
     
 filter_data = [item for item in field_data if item["well_type"] == "prod"]  
 
 
+well_names =[]
+weekly_totals= []
+weekly_summary = {"well_names":well_names, "weekly_totals":weekly_totals}
 
-filter_papers=[]
 
-for item in field_data:
-    if item["well_type"] == "inj":
-        filter_papers.append(item)
+for well in field_data:
+    well_names.append(well["well_name"])
+    for item in well['oil_prod']:
 
-print(filter_papers)
+print(well_names)

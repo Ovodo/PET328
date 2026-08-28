@@ -2,7 +2,7 @@ print("Hello this is a test code we are running")
 
 def darcy_rate(perm,area,del_p,visc,thick,cf=0.001127):
     q=(cf*perm*area*del_p)/(visc*thick)
-    return round(q,2) 
+    return round(q,5) 
 
 
 
