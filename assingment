@@ -1,0 +1,23 @@
+fruits = ['apple', 'banana', 'orange']
+fruits.append('grape')
+ 
+fruits.insert(2,'mango')
+
+fruits.remove('apple')
+fruits.reverse()
+
+students ={'ruona':21, 'Jerry':22,'favour':20 }
+classroom = students.keys()
+print(classroom)
+print(students.items())
+
+
+x = 5
+y = 10
+print( x != y)
+
+
+
+
+
+

@@ -30,4 +30,4 @@ for well in field_data:
     well_names.append(well["well_name"])
     for item in well['oil_prod']:
 
-print(well_names)
+print(well_names
