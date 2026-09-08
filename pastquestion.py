@@ -59,5 +59,98 @@ for item in filtered_data:
             
     weeklytotals.append(weekly_total)
 
+#4d
+def pwf_updator(gwi,visc,b,pi_list,pwfc,qsp):
+#i
+    j=1
+    pwf=pwfc+1
+    pwf_tuple=()
+#ii
+    while pwf>pwfc:
+        qsc=qsp
+        pi=pi_list[j]
+        j=j+1
+        pwf=pi+((qsc*visc*b)/gwi)
+        pwf_tuple=(pwf)
+    print('end of constant regime')
+    return pwf_tuple
 
-print(weekly_summary)
+#last exam questions
+# 2bi
+def fzi(p,K,rqi=None):
+    pZ=p/(1-p)
+    if rqi is None:
+        rqi=0.34*((k/p)**0.5)
+    value=rqi/pZ
+    return round(value,3)
+
+
+total=[]
+cash=['cat',2,3]
+food=['cat','can','dog']
+places=['cat','church','office']
+for  i in range(len(cash)):
+    if cash[i] == food[i] == places[i]:
+        total.append(food[i])
+        
+
+manipulated_target_depths=[]
+manipulated_gr=[]
+manipulated_rt=[]
+
+# Target depths within the Reservoir Zone of Interest (RZI)
+target_depths = [3189.122, 3189.275, 3189.732]
+
+# Wireline Run 1: gamma ray depths and corresponding values
+gr_depths = [3189.122, 3189.275, 3189.581, 3189.732]
+gr_values = [45.2, 48.1, 50.3, 42.9]
+
+# Wireline Run 2: true resistivity depths and corresponding values
+rt_depths = [3189.122, 3189.275, 3189.428, 3189.885]
+rt_values = [12.5, 14.2, 8.9, 25.1]
+for i in range(len(target_depths)):
+    if target_depths[i] == gr_depths[i]== rt_depths[i]:
+        manipulated_target_depths.append(target_depths[i])
+        manipulated_gr.append(gr_values[i])
+        manipulated_rt.append(rt_values[i])
+
+
+
+
+
+
+
+
+target_depths = [3189.122, 3189.275, 3189.732]
+gr_depths = [3189.122, 3189.275, 3189.581, 3189.732]
+gr_values = [45.2, 48.1, 50.3, 42.9]
+rt_depths = [3189.122, 3189.275, 3189.428, 3189.885]
+rt_values = [12.5, 14.2, 8.9, 25.1]
+
+manipulated_target_depths = []
+manipulated_gr = []
+manipulated_rt = []
+
+
+for depth in target_depths:
+    if depth in gr_depths and depth in rt_depths:
+        gr_index = gr_depths.index(depth)
+        rt_index = rt_depths.index(depth)
+        
+        
+        manipulated_target_depths.append(depth)
+        manipulated_gr.append(gr_values[gr_index])
+        manipulated_rt.append(rt_values[rt_index])
+
+
+#
+block_data=dict(area='50 acres',thickness='27 ft',porosity='0.27',watersaturation='0.28',oilformationvolumefactor='1.19rb/stb')
+
+block_data['porosity']='0.20'
+block_data['watersaturation']='0.3'
+block_data['oilformationvolumefactor']='1.16'
+
+
+x=[4,5,6,7,8]
+for i in range(len(x)):
+    print(i)
