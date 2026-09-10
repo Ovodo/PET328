@@ -152,5 +152,16 @@ block_data['oilformationvolumefactor']='1.16'
 
 
 x=[4,5,6,7,8]
-for i in range(len(x)):
-    print(i)
+
+    
+
+
+components = ["Methane", "Ethane", "Propane", "n-Butane"] 
+x=[0.35,0.20,0.20,0.20]
+y=[0.70,0.18,0.08,0.04]
+k=[]
+for i in range(len(components)):
+    k.append(x[i]/y[i])
+
+    print(k[i],components[i])
+print('complete list of k value',k)
