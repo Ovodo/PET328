@@ -25,11 +25,18 @@ Total Questions: 10
 #   iii. display how many days of records the list contains
 #
 # Answer:
-#
-#
-#
-#
-#
+#oil_prod = [4520, 4680, 4495, 4710, 4602]
+
+# i. First day's production rate
+print(oil_prod[0])      
+
+# ii. Last day's production rate (negative index)
+print(oil_prod[-1])     
+
+# iii. Number of days of record
+print(len(oil_prod))    
+
+
 
 # Question 2
 # During data entry, the Day 3 production rate of well TTOWG_8 was wrongly
@@ -39,9 +46,12 @@ Total Questions: 10
 # add a new record of 4660 STB for Day 6 to the list.
 #
 # Answer:
-#
-#
-#
+#oil_prod = [4520, 4680, 4495, 4710, 4602]
+
+# Correct the Day 3 value (index 2) without creating a new list
+oil_prod[2] = 4549
+oil_prod.append(4660)
+print(oil_prod)         
 #
 #
 
@@ -57,28 +67,22 @@ Total Questions: 10
 #
 # Explain WHY the statement failed, then write the correct statement.
 #
-# Answer:
+print(perm[3])     
+#or
+print(perm[-1]) 
 #
-#
-#
-#
-#
-
 # ============================================================================
 # LOOPING THROUGH LISTS
-# ============================================================================
-
+# =========
 # Question 4
 # Write a for loop that iterates through the list below and displays each
 # well name on its own line:
 #
 #     wells = ["TTOWG_4", "TTOWG_8", "TTOWG_12", "TTOWG_14"]
-#
-# Answer:
-#
-#
-#
-#
+
+
+for well in wells:
+    print(well)
 #
 
 # Question 5
@@ -91,13 +95,15 @@ Total Questions: 10
 # the average porosity after the loop.
 #
 # Answer:
-#
-#
-#
-#
-#
-#
-#
+#porosity = [0.21, 0.18, 0.25, 0.23, 0.19]
+
+total = 0
+for p in porosity:
+    total = total + p
+
+average = total / len(porosity)
+print("Average porosity:", average)
+
 
 # Question 6
 # The DSL wants only the active producers from a mixed list of daily
@@ -108,12 +114,11 @@ Total Questions: 10
 #     rates = [5056, 2100, 4831, 1500, 5200, 900]
 #
 # Answer:
-#
-#
-#
-#
-#
-#
+#rates = [5056, 2100, 4831, 1500, 5200, 900]
+
+for rate in rates:
+    if rate > 4000:
+        print(rate)
 
 # ============================================================================
 # DICTIONARIES
@@ -132,13 +137,10 @@ Total Questions: 10
 # Then write a statement that displays the value of thickness.
 #
 # Answer:
-#
-#
-#
-#
-#
-#
-#
+well_data = {"area": 50,"thickness": 27,"porosity": 0.23,"water_saturation": 0.28}
+
+print(well_data["thickness"])   
+
 
 # Question 8
 # After re-evaluation, some properties of the reservoir block in Question 7
@@ -148,12 +150,12 @@ Total Questions: 10
 #   ii.  water_saturation becomes 0.22
 # Also write a statement that adds a NEW key, oil_fvf, with value 1.19.
 #
-# Answer:
-#
-#
-#
-#
-#
+# Answer: 
+well_data["porosity"] = 0.25
+well_data["water_saturation"] = 0.22
+well_data["oil_fvf"] = 1.19
+
+print(well_data)
 
 # Question 9
 # A function in the team's peteng module returns the STOIIP of discretized
@@ -170,13 +172,23 @@ Total Questions: 10
 #        or use sum() with .values())
 #
 # Answer:
-#
-#
-#
-#
-#
-#
-#
+#stoiip_dict = {"Block1": 1.92e6, "Block2": 2.10e6, "Block3": 1.75e6}
+
+
+print(stoiip_dict["Block2"])
+
+stoiip_dict["Block2"] = 2.45e6
+
+total_stoiip = sum(stoiip_dict.values())
+print("Total STOIIP:", total_stoiip)
+
+
+totalvalues = 0
+for values in stoiip_dict.values():
+   totalvalues=totalvalues+ values                    
+
+
+
 
 # Question 10
 # The team structures raw daily production data as a list of dictionaries:
@@ -192,12 +204,13 @@ Total Questions: 10
 # "prod".
 #
 # Answer:
-#
-#
-#
-#
-#
-#
-#
+field_data = [
+    {"well_name": "TTOWG_12", "well_type": "prod", "oil_prod": 5056},
+    {"well_name": "TTOWG_4",  "well_type": "inj",  "oil_prod": 0},
+    {"well_name": "TTOWG_14", "well_type": "prod", "oil_prod": 2532},
+]
 
-# End of Assessment — Good luck!
+for well in field_data:
+    if well["well_type"] == "prod":
+        print(well["well_name"], well["oil_prod"])
+
